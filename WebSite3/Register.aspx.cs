@@ -16,8 +16,8 @@ public partial class Register : System.Web.UI.Page
     }
     protected void cmdAdd_Click(object sender, EventArgs e)
     {
-        connect = new DatabaseConector();
-        SqlCommand cmd = connect.getCommand();
+        DatabaseConector conect = new DatabaseConector();
+        SqlCommand cmd = conect.getCommand();
 
         string cmdText = "INSERT INTO Users VALUES('" + txtUserName.Text + "', '" 
             + txtEmail.Text +"', '"
@@ -26,10 +26,12 @@ public partial class Register : System.Web.UI.Page
             + txtLName.Text +"', "
             + lstTitle.SelectedValue +", '"
             + txtAdress.Text +"', "
-            + txtAccount.Text +");";
+            + txtAccount.Text +", 'false');";
 
+        cmd.CommandText = cmdText;
+        cmd.Connection.Open();
         cmd.ExecuteNonQuery();
 
-        connect.close();
+        conect.close();
     }
 }

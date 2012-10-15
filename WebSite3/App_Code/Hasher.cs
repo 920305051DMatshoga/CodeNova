@@ -16,7 +16,8 @@ public class Hasher
         sha = new SHA1CryptoServiceProvider();
 	}
 
-    public char[] hash(string data)
+    //returns a 16 character hashed string 
+    public string hash(string data)
     {
         char[] charArr = data.ToCharArray();
         byte[] result = new byte[charArr.Length];
@@ -33,6 +34,6 @@ public class Hasher
         {
             charArr[i] = Convert.ToChar(result[i]);
         }
-        return charArr;
+        return new string(charArr);
     }
 }
