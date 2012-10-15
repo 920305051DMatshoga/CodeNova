@@ -39,5 +39,5 @@
     <asp:Label ID="Label10" Text="Account Number :*" runat="server" />
     <asp:TextBox ID="txtAccount" runat="server" />
     <br />
-    <asp:Button ID="cmdAdd" Text="Register" runat="server" />
+    <asp:Button ID="cmdAdd" Text="Register" runat="server" onclick="cmdAdd_Click" />
 </asp:Content>
